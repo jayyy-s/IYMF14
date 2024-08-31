@@ -376,6 +376,9 @@ let prevTime = 0;
 debugObject.animateScene = true;
 gui.add(debugObject, "animateScene");
 
+debugObject.animationRate = 0.618;
+gui.add(debugObject, "animationRate").min(0).max(2).step(0.001);
+
 const tick = () => {
   // elapsed time
   const elapsedTime = clock.getElapsedTime();
@@ -387,12 +390,15 @@ const tick = () => {
 
   // Rotate Scene
   if (debugObject.animateScene) {
-    group.rotation.x += 0.3 * deltaTime;
+    group.rotation.x += debugObject.animationRate * deltaTime;
   }
-
   // render
   renderer.render(scene, camera);
   window.requestAnimationFrame(tick);
+
+  if (Math.ceil(elapsedTime) - elapsedTime < 0.001) {
+    console.log(elapsedTime, group.rotation.x);
+  }
 };
 
 tick();
