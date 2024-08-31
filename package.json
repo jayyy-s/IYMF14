@@ -1,0 +1,24 @@
+{
+  "homepage": "https://jayyy-s.github.io/IYMF14",
+  "name": "iymf14",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "gh-pages": "^6.1.1",
+    "vite": "^5.4.2",
+    "vite-plugin-restart": "^0.4.1"
+  },
+  "dependencies": {
+    "lil-gui": "^0.19.2",
+    "three": "^0.167.1"
+  }
+}
